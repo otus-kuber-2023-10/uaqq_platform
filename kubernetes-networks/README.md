@@ -14,16 +14,16 @@ uaqq Platform repository
  - Установлен и проверен в работе Ingress
 
 ## Как запустить проект:
- - запустить команду `kubectl apply -f frontend-deployment.yaml`
- - запустить команду `kubectl apply -f frontend-replicaset.yaml`
- - запустить команду `kubectl apply -f nodeexporter-daemonset.yaml`, `kubectl port-forward <имя любого pod в DaemonSet> 9100:9100`, `curl localhost:9100/metrics`
- - запустить команду `kubectl apply -f paymentservice-deployment-bg.yaml`
- - запустить команду `kubectl apply -f paymentservice-deployment-reverse.yaml`
- - запустить команду `kubectl apply -f paymentservice-deployment.yaml`
- - запустить команду `kubectl apply -f paymentservice-replicaset.yaml`
+ - запустить команду `kubectl apply -f metallb-config.yaml`
+ - запустить команду `kubectl apply -f nginx-lb.yaml`
+ - запустить команду `kubectl apply -f web-deploy.yaml`
+ - запустить команду `kubectl apply -f web-ingress.yaml`
+ - запустить команду `kubectl apply -f web-svc-cip.yaml`
+ - запустить команду `kubectl apply -f web-svc-headless.yaml`
+ - запустить команду `kubectl apply -f web-svc-lb.yaml`
 
 ## Как проверить работоспособность:
- - Перейти по ссылке `localhost:9100/metrics`
+ - Перейти по ссылке `http://<LB_IP>/web/index.html`
 
 ## PR checklist:
  - [X] Выставлен label с темой домашнего задания

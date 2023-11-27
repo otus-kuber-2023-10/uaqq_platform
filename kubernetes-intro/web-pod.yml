@@ -8,9 +8,15 @@ spec:
   containers:
     - name: nginx
       image: uaqq/web:nginx
+      readinessProbe:
+        httpGet:
+          path: /index.html
+          port: 80
+      livenessProbe:
+        tcpSocket: { port: 8000 }
       imagePullPolicy: Always
       ports:
-        - containerPort: 80
+        - containerPort: 8000
       volumeMounts:
         - name: app
           mountPath: /app
